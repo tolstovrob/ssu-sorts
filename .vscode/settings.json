@@ -8,6 +8,9 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "chrono": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "fstream": "cpp",
+    "string": "cpp",
+    "functional": "cpp"
   }
 }
