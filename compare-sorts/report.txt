@@ -1,5 +1,0 @@
-                     File           Quicksort (ms)           Mergesort (ms)            Heapsort (ms)
-      data/input50000.txt                  6.48956                  7.45693                  11.0235
-     data/input100000.txt                  13.6707                  14.9404                  24.2364
-     data/input500000.txt                  71.7472                  80.3969                    139.9
-    data/input1000000.txt                   159.93                  164.118                  305.686
