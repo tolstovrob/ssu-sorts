@@ -7,6 +7,7 @@
     "span": "cpp",
     "iostream": "cpp",
     "ostream": "cpp",
-    "chrono": "cpp"
+    "chrono": "cpp",
+    "iomanip": "cpp"
   }
 }

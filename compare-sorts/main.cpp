@@ -57,7 +57,7 @@ double testSort(function<void(int*, int, int)> sortFunc, int* data, int size, SO
   return elapsed.count() * 1000;
 }
 
-void writeReport(const string& filename, const string* fileNames, double results[][3], int numFiles) {
+void writeReport(const string& filename, const string* fileNames, double results[][5][3], size_t numFiles, size_t numTests) {
     ofstream report(filename);
     if (!report.is_open()) {
         cerr << "Error creating report file!" << endl;
@@ -65,19 +65,54 @@ void writeReport(const string& filename, const string* fileNames, double results
     }
 
     report << setw(25) << "File"
-           << setw(25) << "Quicksort (ms)"
-           << setw(25) << "Mergesort (ms)"
-           << setw(25) << "Heapsort (ms)" << endl;
+           << setw(10) << "Test"
+           << setw(20) << "Quicksort (ms)"
+           << setw(20) << "Mergesort (ms)"
+           << setw(20) << "Heapsort (ms)" << endl;
 
-    for (int i = 0; i < numFiles; i++) {
+    for (size_t i = 0; i < numFiles; i++) {
+        for (size_t j = 0; j < numTests; j++) {
+            report << setw(25) << fileNames[i]
+                   << setw(10) << j + 1
+                   << setw(20) << results[i][j][0]
+                   << setw(20) << results[i][j][1]
+                   << setw(20) << results[i][j][2] << endl;
+        }
+    }
+
+    report << string(100, '-') << endl;
+
+    report << setw(25) << "File"
+           << setw(10) << "Test"
+           << setw(20) << "Quicksort (ms)"
+           << setw(20) << "Mergesort (ms)"
+           << setw(20) << "Heapsort (ms)" << endl;
+
+    for (size_t i = 0; i < numFiles; i++) {
+        double avgQuicksort = 0.0;
+        double avgMergesort = 0.0;
+        double avgHeapsort = 0.0;
+
+        for (size_t j = 0; j < numTests; j++) {
+            avgQuicksort += results[i][j][0];
+            avgMergesort += results[i][j][1];
+            avgHeapsort += results[i][j][2];
+        }
+
+        avgQuicksort /= numTests;
+        avgMergesort /= numTests;
+        avgHeapsort /= numTests;
+
         report << setw(25) << fileNames[i]
-               << setw(25) << results[i][0]
-               << setw(25) << results[i][1]
-               << setw(25) << results[i][2] << endl;
+               << setw(10) << "Avg"
+               << setw(20) << fixed << setprecision(2) << avgQuicksort
+               << setw(20) << fixed << setprecision(2) << avgMergesort
+               << setw(20) << fixed << setprecision(2) << avgHeapsort << endl;
     }
 
     report.close();
 }
+
 
 int main(int argc, char* argv[]) {
     if (argc < 5) {
@@ -85,26 +120,29 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    const int numFiles = 4;
+    const size_t numFiles = 4;
+    const size_t numTests = 5;
     string fileNames[numFiles] = {argv[1], argv[2], argv[3], argv[4]};
-    double results[numFiles][3]; 
+    double results[numFiles][numTests][3]; 
 
-    for (int i = 0; i < numFiles; i++) {
-        int size;
-        int* data = parseData(fileNames[i], size);
-
-        if (!data) {
-            cerr << "Error fetching data from file: " << fileNames[i] << endl;
-            continue;
-        }
-
-        results[i][0] = testSort(quicksort, data, size, QuickSort);
-        results[i][1] = testSort(mergesort, data, size, MergeSort);
-        results[i][2] = testSort(heapsort, data, size, HeapSort);
-        delete[] data; 
+    for (int j = 0; j < numTests; j++) {
+        for (int i = 0; i < numFiles; i++) {
+            int size;
+            int* data = parseData(fileNames[i], size);
+    
+            if (!data) {
+                cerr << "Error fetching data from file: " << fileNames[i] << endl;
+                continue;
+            }
+    
+            results[i][j][0] = testSort(quicksort, data, size, QuickSort);
+            results[i][j][1] = testSort(mergesort, data, size, MergeSort);
+            results[i][j][2] = testSort(heapsort, data, size, HeapSort);
+            delete[] data; 
+        }    
     }
     
-    writeReport("report.txt", fileNames, results, numFiles);
+    writeReport("report.txt", fileNames, results, numFiles, numTests);
 
     cout << "Report successfully created in report.txt" << endl;
     return 0;
