@@ -1,0 +1,49 @@
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 3
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 3
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 1
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 1
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 4
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 4
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 15
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 15
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 9
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 9
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 26
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 26
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 5
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 5
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 35
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 35
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 8
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 8
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 97
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 97
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 93
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 93
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 2
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 2
+2025-03-24 12:04:50 [32m[INFO][0m: Created node with value: 38
+2025-03-24 12:04:50 [32m[INFO][0m: Inserted value: 38
+2025-03-24 12:04:50 [32m[INFO][0m: Loaded tree from: input.txt
+2025-03-24 12:04:50 [32m[INFO][0m: Pre-order traversal:
+3 1 2 4 15 9 5 8 26 35 97 93 38 
+2025-03-24 12:04:50 [32m[INFO][0m: In-order traversal:
+1 2 3 4 5 8 9 15 26 35 38 93 97 
+2025-03-24 12:04:50 [32m[INFO][0m: Post-order traversal:
+2 1 8 5 9 38 93 97 35 26 15 4 3 
+2025-03-24 12:04:50 [33m[WARNING][0m: Attempted to remove non-existent value: 25
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 4
+2025-03-24 12:04:50 [32m[INFO][0m: Removed value: 3
+2025-03-24 12:04:50 [32m[INFO][0m: Saved tree to: output.txt
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 4
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 15
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 26
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 35
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 97
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 93
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 38
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 9
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 5
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 8
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 1
+2025-03-24 12:04:50 [32m[INFO][0m: Destroyed node with value: 2
