@@ -349,10 +349,12 @@ int main()
     bst.traverseInOrder();
     bst.traversePostOrder();
 
+    bst.saveToFile("output.txt");
+
     bst.remove(25);
     bst.remove(3);
 
-    bst.saveToFile("output.txt");
+    bst.saveToFile("removed_25_3.txt");
 
     return 0;
 }
